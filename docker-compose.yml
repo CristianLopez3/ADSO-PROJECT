@@ -1,0 +1,38 @@
+services:
+  menu-easy:
+    build: ./backend
+    mem_limit: 512m
+    # image: adso
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db_project:3306/db_project?createDatabaseIfNotExist=true&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=12345678
+    restart: always
+    depends_on:
+      db_project:
+        condition: service_healthy
+
+  db_project:
+    image: mysql:8.0.33
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+      - MYSQL_PASSWORD=12345678
+      - MYSQL_DATABASE=db_project
+      #- MYSQL_USER=root
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+  node_app:
+    build: ./frontend
+    ports:
+      - "5174:5174"
+    restart: always
+    depends_on:
+      - db_project
+    command: npm run dev

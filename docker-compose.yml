@@ -9,6 +9,10 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db_project:3306/db_project?createDatabaseIfNotExist=true&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=12345678
+      - FRONTEND_PATH=http://localhost:5174
+      - PROJECT_FRONTEND_PATH=http://localhost:5174
+      - SECRET_KEY=9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
+      - PROJECT_SECRET_KEY=9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
     restart: always
     depends_on:
       db_project:

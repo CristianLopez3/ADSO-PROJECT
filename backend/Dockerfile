@@ -1,9 +1,9 @@
 
 FROM openjdk:17-jdk-slim
-COPY target/adsoproject-github.jar adsoproject-github.jar
 EXPOSE 8080
-#ADD target/adsoproject-github.jar  adsoproject-github.jar
-ENTRYPOINT ["java", "-jar", "adsoproject-github.jar"]
+#COPY target/adsoproject-github.jar adsoproject-github.jar
+ADD target/adsoproject-github.jar  adsoproject-github.jar
+ENTRYPOINT ["java", "-jar", "/adsoproject-github.jar"]
 
 
 # FROM openjdk:17-jdk-slim

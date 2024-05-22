@@ -1,0 +1,20 @@
+# Node modules
+/node_modules/
+/frontend/node_modules/
+
+# Frontend distribution files
+/frontend/dist/
+
+# Backend AWS and IDEA files
+/backend/.aws/
+/backend/.idea/
+
+# Backend target and bin directories
+/backend/target/
+/backend/bin/
+
+# Specific IDEA files
+/backend/.idea/runConfigurations/
+/backend/.idea/workspace.xml
+/backend/.idea/tasks.xml
+/backend/.idea/dataSources/

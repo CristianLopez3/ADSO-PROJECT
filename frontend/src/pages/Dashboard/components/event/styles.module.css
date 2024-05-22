@@ -1,0 +1,23 @@
+.header {
+  @apply py-4 px-2 text-center md:pr-8 md:text-end bg-zinc-900 text-zinc-100 rounded-md;
+}
+
+.form {
+  @apply p-2 md:px-6 md:py-4 space-y-3;
+}
+
+.input {
+  @apply border rounded-md border-zinc-400 w-full  p-3 text-lg font-bold transition-all duration-200 outline-none;
+}
+
+.textarea {
+  @apply border rounded-md border-zinc-400 w-full  max-h-52 h-full p-3 text-sm md:text-lg transition-all duration-200 outline-none whitespace-normal break-normal text-wrap scroll-auto;
+}
+
+.footer {
+  @apply flex justify-end items-center gap-2;
+}
+
+.pictureForm {
+  @apply w-full flex justify-center items-center flex-col gap-2 md:flex-row;
+}

@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+@layer base {
+  
+  html { 
+    @apply m-0 p-0
+  }
+
+  body{
+    @apply bg-zinc-900 overflow-x-hidden overflow-y-scroll m-0 p-0 ;
+  }
+
+  h2{
+    @apply text-3xl font-bold text-center;
+  }
+
+  select {
+    @apply block w-full py-3 pl-1 pr-4 border-b border-gray-400 outline-none text-sm text-gray-800 my-3;
+  }
+
+
+}
+
+@layer components {
+  .App {
+    @apply flex items-center  justify-between min-h-screen bg-gray-500
+  }
+
+  .btn {
+    @apply flex gap-2 items-center  justify-center  py-2 px-4 font-normal shadow-md rounded-md;
+  }
+
+  .btn.btn-light{
+    @apply bg-zinc-100 text-zinc-900;
+  }
+
+  .btn.btn-dark{
+    @apply bg-zinc-950 text-zinc-300;
+  }
+
+  .btn.btn-danger {
+    @apply text-zinc-900 bg-red-200 shadow-red-400/40;
+  }
+  
+  .btn.btn-warning {
+    @apply  bg-yellow-100 shadow-yellow-400/40 text-yellow-800;
+  }
+  
+  .btn.btn-success {
+    @apply bg-green-100 shadow-green-400/40 text-green-800;
+  }
+
+  .row-table {
+    @apply py-3 w-fit px-3 text-sm bg-zinc-800  border-0 text-zinc-200 whitespace-nowrap;
+  }
+
+  .mini-row-table {
+    @apply py-3 w-full px-3 text-base bg-zinc-800  border-0 text-zinc-100 whitespace-nowrap;
+  }
+
+  .container-section {
+    @apply container mx-auto;
+  }
+  
+  .navbar-container {
+    @apply fixed top-0 left-0 z-[100] w-full h-auto bg-black  rounded border-secondary
+  }
+
+  .span-primary {
+    @apply bg-primary;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .input-validation {
+    @apply flex flex-col justify-center;
+  }
+
+  .r-right {
+    @apply bg-gradient-to-r from-zinc-500 to-zinc-600
+  }
+
+  .r-left {
+    @apply bg-gradient-to-l from-zinc-500 to-zinc-600
+  }
+
+  .r-top {
+    @apply bg-gradient-to-t from-zinc-500 to-zinc-600
+  }
+
+  .r-bottom {
+    @apply bg-gradient-to-b from-zinc-600 to-zinc-500
+  }
+
+}
+
+
+
+

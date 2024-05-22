@@ -1,0 +1,12 @@
+#hero {
+  background-image: url("@/assets/bg-desktop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+  backdrop-filter: grayscale( 0%);
+}
+
+#super-hero{
+  backdrop-filter: brightness(40%);
+}

@@ -1,0 +1,19 @@
+.title {
+    @apply flex items-center font-bold gap-2 text-base lg:text-2xl text-zinc-300; 
+}
+
+.title_line {
+    @apply w-1 border-l-4 h-8;
+}
+
+.add_button {
+    @apply px-2 gap-x-2;
+    & span {
+        @apply hidden md:block ;
+    }
+}
+
+
+.main {
+    @apply px-2 md:px-8 mx-auto;
+}

@@ -1,0 +1,34 @@
+services:
+  menu-easy:
+    build: ./
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db_project:3306/db_project?createDatabaseIfNotExist=true&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=12345678
+      - PROJECT_FRONTEND_PATH=http://localhost:5174
+      - SECRET_KEY=9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
+      - PROJECT_SECRET_KEY=9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
+    restart: always
+    volumes:
+      - ./images:/app/images
+    depends_on:
+      db_project:
+        condition: service_healthy
+
+  db_project:
+    image: mysql:8.0.33
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+      - MYSQL_PASSWORD=12345678
+      - MYSQL_DATABASE=db_project
+      #- MYSQL_USER=root
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10

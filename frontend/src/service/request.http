@@ -1,0 +1,73 @@
+POST http://localhost:9000/category
+Content-Type: application/json
+
+{
+  "name": "Starter"
+}
+
+
+POST http://localhost:9000/reservation
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "phoneNumber": "1234567890",
+    "email": "john.doe@example.com",
+    "reservationDate": "2022-12-31T19:00:00",
+    "numberOfPeople": 4,
+    "description": "Birthday party"
+}
+
+
+GET http://localhost:9000/menus
+
+GET http://localhost:9000/category
+
+
+GET http://localhost:9000/menus
+Content-Type: application/json
+
+{
+  "title": "Arepa",
+  "description": "Soup with some vegetables",
+  "price": 1000,
+  "state": true,
+  "idCategory": 1
+}
+
+
+
+
+
+PUT http://localhost:9000/users/3
+Content-Type: application/json
+
+{
+  "name": "Naruto",
+  "lastName": "Garcia",
+  "identification": "12342322",
+  "cellphone": 34211,
+  "email": "Fernao@mail.com",
+  "password": "************",
+  "role": "ADMIN"
+}
+
+
+GET http://localhost:9000/users
+
+
+
+POST http://localhost:9000/users
+Content-Type: application/json
+
+{
+  "name": "Dani",
+  "lastName": "Pe",
+  "identification": "12342322",
+  "cellphone": 34211,
+  "email": "Fernao@mail.com",
+  "password": "************",
+  "role": "ADMIN"
+}
+
+

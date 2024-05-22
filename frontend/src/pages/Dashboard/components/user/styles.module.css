@@ -1,0 +1,39 @@
+.form_container { 
+    @apply mx-auto my-4 w-full sm:w-[300px] md:w-2/3 text-center;
+}
+
+.form_h3 {
+    @apply text-lg font-black text-zinc-800;
+}
+
+.form_form {
+    @apply text-left text-sm text-zinc-500 mt-8;
+}
+
+.form_input_flex {
+    @apply md:flex md:flex-row gap-x-6;
+}
+
+.form_buttons {
+    @apply grid grid-cols-2 gap-4 mt-8;
+}
+
+.input_flex {
+    @apply w-full md:w-1/2;
+}
+
+
+/*=============================================
+=            Table User            =
+=============================================*/
+
+.no_data {
+    @apply text-left py-4 pl-4 bg-zinc-800 text-zinc-300;
+}
+
+.data_table {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 lg:hidden;
+}
+
+/*=====  End of Table User  ======*/
+

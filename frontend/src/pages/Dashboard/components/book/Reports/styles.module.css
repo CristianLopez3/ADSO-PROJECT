@@ -1,0 +1,75 @@
+/*=============================================
+=            Base Report            =
+=============================================*/
+
+.main {
+  @apply px-2 mx-auto grid grid-cols-1 items-center max-h-full h-full;
+}
+
+.section {
+  @apply max-w-[1440px] gap-4 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2;
+}
+
+.title {
+  @apply flex items-center  font-bold gap-2 text-2xl text-zinc-300;
+}
+
+.button_back {
+  @apply py-2 px-4 flex items-center gap-x-2 bg-zinc-300 text-zinc-900 rounded-md;
+}
+
+.title_line {
+  @apply w-1 border-l-4 h-8;
+}
+
+.article_charts {
+  @apply grid grid-cols-1  gap-4 col-span-1  
+  md:col-span-3 
+  md:grid-cols-1 
+  lg:col-span-3  
+  lg:grid-cols-2;
+}
+
+/*=====  End of Report   ======*/
+
+/*=============================================
+=            Report Between Dates Styles            =
+=============================================*/
+
+.card_container {
+  @apply w-full p-6  bg-zinc-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700;
+
+  & h5 {
+    @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-zinc-100;
+  }
+}
+
+.description {
+  @apply mb-3 font-normal text-gray-700 dark:text-gray-400;
+}
+
+.datepicker_container {
+  @apply relative flex flex-col justify-start gap-2;
+}
+.datapicker_label {
+  @apply text-zinc-500;
+}
+
+.data_picker {
+  @apply p-2 bg-zinc-200 rounded-md border border-zinc-800;
+}
+.section_center {
+  @apply flex justify-center items-center;
+}
+
+.reservations_number {
+  @apply text-3xl font-bold text-zinc-200  flex justify-around items-center gap-10 bg-zinc-900 px-4 py-1 rounded-md xl:text-7xl lg:px-8 lg:py-4;
+
+  & span {
+    @apply text-sm lg:hidden text-zinc-300;
+  }
+}
+
+.body_card {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-x-10;
+}

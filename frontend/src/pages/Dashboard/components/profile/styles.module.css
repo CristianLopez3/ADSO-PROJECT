@@ -1,0 +1,38 @@
+/**
+.container {
+  @apply grid grid-cols-1;
+}
+
+.container_id {
+  @apply flex flex-col justify-center items-center h-[100vh];
+}
+*/
+
+.container_profile {
+  @apply relative flex flex-col items-center rounded-[20px] w-full mx-auto  bg-zinc-100  shadow-md;
+}
+
+.header {
+  @apply relative flex h-32 w-full justify-center rounded-xl bg-cover;
+}
+
+.header_back {
+  @apply absolute flex h-32 w-full justify-center rounded-xl bg-cover bg-orange-300
+  object-cover;
+}
+
+.icon_container {
+  @apply absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-zinc-200 bg-zinc-400;
+}
+
+.name_container {
+  @apply mt-16 flex flex-col items-center;
+}
+
+.name {
+  @apply text-xl font-bold text-zinc-700;
+}
+
+.role {
+  @apply text-base font-normal text-gray-600;
+}

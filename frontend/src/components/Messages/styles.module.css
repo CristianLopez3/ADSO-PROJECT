@@ -1,0 +1,20 @@
+/* Message.module.css */
+.messageContainer {
+  @apply flex items-center justify-center gap-3 w-full lg:w-[90%];
+}
+
+.iconContainer {
+  @apply bg-zinc-700 p-4 rounded-[36%];
+}
+
+.contentContainer {
+  @apply w-full flex justify-between items-center gap-x-6;
+}
+
+.title {
+  @apply text-zinc-50 text-sm;
+}
+
+.description {
+  @apply text-zinc-400 text-xs;
+}

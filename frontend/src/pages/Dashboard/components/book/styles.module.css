@@ -1,0 +1,16 @@
+
+/*=============================================
+=            Row for Book            =
+=============================================*/
+
+.tr{
+    @apply transition-all;
+}
+
+.tr_span {
+    @apply block text-xs bg-zinc-800 font-semibold italic;
+}
+
+
+
+

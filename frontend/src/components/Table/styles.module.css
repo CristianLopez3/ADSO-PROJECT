@@ -1,0 +1,13 @@
+
+/*=============================================
+=            TABLE STYLES            =
+=============================================*/
+
+.table_container {
+    @apply w-full overflow-auto rounded-xl shadow-2xl hidden lg:block;
+    margin-trim: block-end;
+}
+
+
+/*=====  End of Table Styles  ======*/
+

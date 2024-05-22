@@ -1,0 +1,16 @@
+POST http://localhost:9000/api/v1/auth/login
+
+{
+  "name": "John",
+  "lastName": "Doe",
+  "email": "johndoe@example.com",
+  "identification": "ABCD1234",
+  "password": "secretpassword",
+  "cellphone": 1234567890,
+  "role": "ADMIN"
+}
+
+{
+  "email": "johndoe@example.com",
+  "password": "secretpassword"
+}

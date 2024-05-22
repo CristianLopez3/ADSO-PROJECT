@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: menu-easy
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+
+aws:
+  region: us-east-1
+  s3:
+    buckets:
+      images: menueasy-pictures
+
+main:
+  web-application-type: servlet
+
+servlet:
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 10MB
+
+codec:
+  max-in-memory-size: 10MB
+
+
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
+
+
+project:
+  image: /app/images
+  secretKey: ${PROJECT_SECRET_KEY}
+  frontendPath: ${PROJECT_FRONTEND_PATH}
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+

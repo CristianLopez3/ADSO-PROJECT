@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "server.servlet.multipart.max-request-size",
+      "type": "java.lang.String",
+      "description": "Description for server.servlet.multipart.max-request-size."
+    },
+    {
+      "name": "server.servlet.multipart.max-file-size",
+      "type": "java.lang.String",
+      "description": "Description for server.servlet.multipart.max-file-size."
+    }
+  ] }

@@ -1,0 +1,10 @@
+.arrow {
+    @apply p-2 lg:p-4 mx-2  flex items-center justify-center rounded-md text-zinc-100 bg-zinc-700 cursor-pointer;
+}
+
+.page {
+    @apply hidden text-lg cursor-pointer   rounded-md    transition-all duration-100  mx-3
+    hover:bg-zinc-700
+    hover:text-zinc-100
+    lg:flex lg:py-2 lg:px-4 items-center justify-center;
+}

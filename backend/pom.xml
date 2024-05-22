@@ -14,7 +14,6 @@
     <name>app_menuEasy</name>
     <description>Demo Project adso</description>
     <properties>
-        <java.version>17</java.version>
         <jwt.version>0.12.5</jwt.version>
         <aws.s3.version>2.20.26</aws.s3.version>
     </properties>

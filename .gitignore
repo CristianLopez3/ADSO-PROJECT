@@ -18,3 +18,8 @@
 /backend/.idea/workspace.xml
 /backend/.idea/tasks.xml
 /backend/.idea/dataSources/
+
+
+/.idea/
+/.vscode/
+/.DS_Store

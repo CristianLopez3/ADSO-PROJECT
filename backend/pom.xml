@@ -150,6 +150,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>adsoproject-github</finalName>
     </build>
 
 </project>

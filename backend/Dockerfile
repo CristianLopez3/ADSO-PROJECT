@@ -2,11 +2,11 @@ FROM openjdk:17-jdk
 
 WORKDIR /app
 
-COPY target/menueasy.jar /app/menueasy.jar.jar
+COPY target/menueasy.jar /app/menueasy.jar
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "menueasy.jar.jar"]
+CMD ["java", "-jar", "menueasy.jar"]
 
 #ENV SPRING_DATASOURCE_URL=jdbc:mysql://db_project:3306/db_project
 #ENV SPRING_DATASOURCE_USERNAME=root

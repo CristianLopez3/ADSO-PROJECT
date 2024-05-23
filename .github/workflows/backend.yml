@@ -6,6 +6,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docker-compose.yml'
+      - 'backend/**'
+      - '.github/workflows/backend.yml'
 
 jobs:
   build-deploy:
@@ -33,19 +37,21 @@ jobs:
           mvn -B package --file pom.xml
 
       - name: Build Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./backend
           dockerfile: Dockerfile
           push: false
           tags: cristianlopezcma/menueasy:today
+
       - name: Login to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
       - name: Push to Docker Hub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./backend
           dockerfile: Dockerfile

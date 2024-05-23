@@ -10,4 +10,4 @@ API Rest with Spring Boot...
 
 ## Why Spring?
 
-Spring is a very powerfull tool
+Spring is a very powerful tool

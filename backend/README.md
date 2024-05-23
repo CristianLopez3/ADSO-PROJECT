@@ -7,7 +7,3 @@ API Rest with Spring Boot...
   git clone https://github.com/CristianLopez3/BACKEND-ADSO-PROJECT.git
   cd BACKEND-ADSO-PROJECT 
 ```
-
-## Why Spring?
-
-Spring is a very powerful tool

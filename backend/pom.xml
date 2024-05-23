@@ -11,8 +11,8 @@
     <groupId>edu.menueasy</groupId>
     <artifactId>app_menuEasy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>app_menuEasy</name>
-    <description>Demo Project adso</description>
+    <name>menueasy</name>
+    <description>Adso Project - Menu Easy</description>
     <properties>
         <java.version>17</java.version>
         <jwt.version>0.12.5</jwt.version>
@@ -150,7 +150,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>adsoproject-github</finalName>
+        <finalName>menueasy</finalName>
     </build>
 
 </project>

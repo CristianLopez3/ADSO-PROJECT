@@ -31,7 +31,7 @@ ENV PROJECT_SECRET_KEY=9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca
 ENV PROJECT_FRONTEND_PATH=http://localhost:5174
 
 # Copy the jar file from the build stage
-COPY --from=build /app/target/adsoproject-github.jar app.jar
+COPY --from=build /app/target/menuasy.jar app.jar
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

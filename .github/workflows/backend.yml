@@ -4,9 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - backend/**
 
 jobs:
   build-deploy:
+    defaults:
+      run:
+        working-directory: ./backend
     name: Build and Deploy Spring Boot for ADSO Project
     runs-on: ubuntu-latest
     steps:
@@ -20,10 +25,11 @@ jobs:
           java-version: '17'
 
       - name: Unit Tests
-        run: mvn -B test --file backend/pom.xml
+        run: mvn -B test --file pom.xml
 
       - name: Build the application
         run: |
-          mvn clean -DskipTests --file backend/pom.xml
-          mvn package -DskipTests --file backend/pom.xml
-        
+          mvn clean -DskipTests --file pom.xml
+          mvn package -DskipTests --file pom.xml
+
+

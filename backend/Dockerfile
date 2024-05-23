@@ -1,4 +1,3 @@
-
 # Use the official maven/Java 17 image to create a build artifact.
 # This is based on Debian and sets the MAVEN_HOME environment variable
 FROM maven:3.8.4-openjdk-17-slim AS build
@@ -25,7 +24,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the jar file from the build stage
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/adsoproject-github.jar app.jar
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

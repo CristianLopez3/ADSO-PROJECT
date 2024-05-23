@@ -8,6 +8,7 @@ EXPOSE 8080
 
 CMD ["java", "-jar", "menueasy.jar"]
 
+# Changes
 #ENV SPRING_DATASOURCE_URL=jdbc:mysql://db_project:3306/db_project
 #ENV SPRING_DATASOURCE_USERNAME=root
 #ENV SPRING_DATASOURCE_PASSWORD=12345678

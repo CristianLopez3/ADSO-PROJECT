@@ -19,3 +19,6 @@ target
 bin
 /bin
 /bin/**
+
+adso.iml
+app_menuEasy.iml

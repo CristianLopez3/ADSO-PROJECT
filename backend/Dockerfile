@@ -23,6 +23,13 @@ FROM openjdk:17-jdk-slim
 # Set the working directory in the image to /app
 WORKDIR /app
 
+# Define environment variables
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://db_project:3306/db_project?createDatabaseIfNotExist=true&serverTimezone=UTC
+ENV SPRING_DATASOURCE_USERNAME=root
+ENV SPRING_DATASOURCE_PASSWORD=12345678
+ENV PROJECT_SECRET_KEY=9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
+ENV PROJECT_FRONTEND_PATH=http://localhost:5174
+
 # Copy the jar file from the build stage
 COPY --from=build /app/target/adsoproject-github.jar app.jar
 

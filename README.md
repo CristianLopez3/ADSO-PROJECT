@@ -3,9 +3,12 @@
 Welcome to our project for ADSO (Analysis and Software Development).
 
 ## Tech's Stack
+
 * ReactJS + Typescript
 * Java + SpringBoot
 * MySQL
+* Docker
+* Testing
 
 ## Use this project
 

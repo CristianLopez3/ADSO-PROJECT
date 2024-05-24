@@ -2,6 +2,7 @@
 
 API Rest with Spring Boot...
 
+:x: Try do deploy, url's are failing
 
 ## 🚀 Quick start
 

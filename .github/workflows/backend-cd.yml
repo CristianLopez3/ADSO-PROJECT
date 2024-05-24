@@ -1,4 +1,4 @@
-name: Build & Deploy Spring app
+name: Build & Deploy Spring Boot Application
 
 on:
   push:
@@ -101,7 +101,7 @@ jobs:
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
-        uses: aws-actions/amazon-ecs-render-task-definition@v@1
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: springboot-task-definition.json
           container-name: menueasy

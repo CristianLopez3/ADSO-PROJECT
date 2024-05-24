@@ -108,6 +108,14 @@ jobs:
           task-definition: springboot-task-definition.json
           container-name: menueasy
           image: ${{ steps.build-image.outputs.image }}
+          environment: |
+            [
+              {"name": "SPRING_DATASOURCE_URL", "value": "${{ secrets.SPRING_DATASOURCE_URL }}"},
+              {"name": "SPRING_DATASOURCE_USERNAME", "value": "${{ secrets.SPRING_DATASOURCE_USERNAME }}"},
+              {"name": "SPRING_DATASOURCE_PASSWORD", "value": "${{ secrets.SPRING_DATASOURCE_PASSWORD }}"},
+              {"name": "PROJECT_SECRET_KEY", "value": "${{ secrets.PROJECT_SECRET_KEY }}"},
+              {"name": "PROJECT_FRONTEND_PATH", "value": "${{ secrets.PROJECT_FRONTEND_PATH }}"}
+            ]
 
 
       - name: Deploy Amazon ECS task definition

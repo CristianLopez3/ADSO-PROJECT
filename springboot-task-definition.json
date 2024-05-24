@@ -15,7 +15,28 @@
         }
       ],
       "essential": true,
-      "environment": [],
+      "environment": [
+        {
+          "name": "SPRING_DATASOURCE_URL",
+          "value": "your-database-url"
+        },
+        {
+          "name": "SPRING_DATASOURCE_USERNAME",
+          "value": "your-database-username"
+        },
+        {
+          "name": "SPRING_DATASOURCE_PASSWORD",
+          "value": "your-database-password"
+        },
+        {
+          "name": "PROJECT_SECRET_KEY",
+          "value": "your-secret-key"
+        },
+        {
+          "name": "PROJECT_FRONTEND_PATH",
+          "value": "your-frontend-path"
+        }
+      ],
       "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],

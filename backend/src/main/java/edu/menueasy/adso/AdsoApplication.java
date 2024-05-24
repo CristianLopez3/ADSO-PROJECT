@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 
 @SpringBootApplication
 public class AdsoApplication {
@@ -20,7 +21,9 @@ public class AdsoApplication {
     CommandLineRunner runner() {
         return args -> {
             System.out.println("=====================================================");
-            System.out.println("Hello, from the console");
+            System.out.println("Hello, from the console in " + new Date());
+            System.out.println("=====================================================");
+
         };
     }
 

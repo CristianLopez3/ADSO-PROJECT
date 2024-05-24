@@ -117,3 +117,5 @@ jobs:
           service: menueasy-service
           cluster: DevCluster2
           wait-for-service-stability: true
+
+          # todo: configure sc2

@@ -9,6 +9,7 @@ on:
       - 'docker-compose.yml'
       - 'backend/**'
       - '.github/workflows/backend-cd.yml'
+      - './'
 
 jobs:
   build-deploy:
@@ -94,7 +95,6 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
           REPOSITORY: menueasy
-        # Problem is here
         run: |
           docker build -t $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG  
@@ -116,7 +116,6 @@ jobs:
               {"name": "PROJECT_SECRET_KEY", "value": "${{ secrets.PROJECT_SECRET_KEY }}"},
               {"name": "PROJECT_FRONTEND_PATH", "value": "${{ secrets.PROJECT_FRONTEND_PATH }}"}
             ]
-
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1

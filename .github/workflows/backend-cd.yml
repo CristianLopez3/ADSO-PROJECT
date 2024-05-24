@@ -7,7 +7,7 @@ on:
     paths:
       - 'docker-compose.yml'
       - 'backend/**'
-      - '.github/workflows/backend.yml'
+      - '.github/workflows/backend-cd.yml
 
 jobs:
   build-deploy:

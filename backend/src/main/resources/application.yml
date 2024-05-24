@@ -2,9 +2,9 @@ spring:
   application:
     name: menu-easy
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:mysql://db-project.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/db_project
+    username: root
+    password: Easy.2024.project
   jpa:
     hibernate:
       ddl-auto: create-drop

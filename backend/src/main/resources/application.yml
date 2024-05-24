@@ -2,17 +2,16 @@ spring:
   application:
     name: menu-easy
   datasource:
-    url: jdbc:mysql://menueasy.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/menueasy
-    username: root
-    password: Easy.2024.project
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
-    show-sql: true
+    show-sql: false
 
 aws:
   region: us-east-1
@@ -40,8 +39,8 @@ server:
 
 project:
   image: /app/images
-  secretKey: 9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
-  frontendPath: http://localhost:5174
+  secretKey: ${PROJECT_SECRET_KEY}
+  frontendPath: ${PROJECT_FRONTEND_PATH}
 
 
 logging:
@@ -49,5 +48,3 @@ logging:
     org:
       springframework:
         security: DEBUG
-
-

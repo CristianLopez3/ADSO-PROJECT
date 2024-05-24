@@ -1,21 +1,47 @@
-# Meny EASY
+<h1 align="center"> Menu EASY  🍱 </h1>
 
-Welcome to our project for ADSO (Analysis and Software Development).
+API Rest with Spring Boot...
 
-## Tech's Stack
+[Tutorial](https://www.youtube.com/watch?v=OMn866JBEtQ)
 
-* ReactJS + Typescript
-* Java + SpringBoot
-* MySQL
-* Docker
-* Testing
+## 🚀 Quick start
 
-## Use this project
-
-Clone this repo and download docker, next run the below commands in your shell:
+Be Sure to have installed Git in your machine in order to run the next commands:
 ```shell
-    docker-compose build
-    docker compose up 
+  git clone https://github.com/CristianLopez3/ADSO-PROJECT.git menu-easy
+  cd menu-easy 
 ```
 
-If you are in docker be sure to be in "SUDO" mode...
+Now you can try running the docker compose in this directory with the next commands:
+```dockerfile
+    docker-compose build
+    docker compose up
+```
+
+## 📦 Technologies
+For this project We are using the following technologies:
+<div>
+    <img src="https://skillicons.dev/icons?i=react,tailwindcss,spring,typescript,java,mysql,aws,docker"/>
+</div>
+
+
+## Frontend Project 📱
+
+
+
+
+## Backend Structure 💻
+```shell
+menu-easy
+├── backend
+│   ├── src
+│   │   ├── main
+│   │   │   ├── java
+│   │   │   │   ├── com
+│   │   │   │   │   ├── menu
+│   │   │   │   │   │   ├── controller
+│   │   │   │   │   │   ├── domain
+│   │   │   │   │   │   ├── infra
+│   │   │   │   │   │   ├── s3
+│   │   │   │   │   │   ├── MenuEasyApplication.java
+

@@ -2,7 +2,6 @@
 
 API Rest with Spring Boot...
 
-[Tutorial](https://www.youtube.com/watch?v=OMn866JBEtQ)
 
 ## 🚀 Quick start
 

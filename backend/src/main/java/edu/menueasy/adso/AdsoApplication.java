@@ -16,14 +16,12 @@ public class AdsoApplication {
         SpringApplication.run(AdsoApplication.class, args);
     }
 
-//    @Bean
-//    CommandLineRunner runner(S3Service service, S3Buckets s3Buckets) {
-//        return args -> {
-//           service.putObject(s3Buckets.getImages(), "testfoo", "Cristian".getBytes());
-//
-//           byte[] res = service.getObject(s3Buckets.getImages(), "testfoo");
-//              System.out.println(new String(res, StandardCharsets.UTF_8));
-//        };
-//    }
+    @Bean
+    CommandLineRunner runner() {
+        return args -> {
+            System.out.println("=====================================================");
+            System.out.println("Hello, from the console");
+        };
+    }
 
 }

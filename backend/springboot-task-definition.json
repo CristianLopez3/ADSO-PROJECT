@@ -1,9 +1,9 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:us-east-2:471112935435:task-definition/springboot-task-definition:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:471112935435:task-definition/springboot-task-definition:1",
   "containerDefinitions": [
     {
       "name": "menueasy",
-      "image": "471112935435.dkr.ecr.us-east-2.amazonaws.com/menueasy:latest",
+      "image": "471112935435.dkr.ecr.us-east-1.amazonaws.com/menueasy:latest",
       "cpu": 0,
       "portMappings": [
         {
@@ -17,24 +17,24 @@
       "essential": true,
       "environment": [
         {
-          "name": "SPRING_DATASOURCE_USERNAME",
-          "value": "root"
-        },
-        {
-          "name": "PROJECT_SECRET_KEY",
-          "value": "9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936"
-        },
-        {
           "name": "SPRING_DATASOURCE_URL",
-          "value": "jdbc:mysql://menueasy.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/menueasy"
+          "value": "jdbc:mysql://db-project.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/db_project"
+        },
+        {
+          "name": "SPRING_DATASOURCE_USERNAME",
+          "value": "your-database-username"
         },
         {
           "name": "SPRING_DATASOURCE_PASSWORD",
-          "value": "Easy.2024.project"
+          "value": "your-database-password"
+        },
+        {
+          "name": "PROJECT_SECRET_KEY",
+          "value": "your-secret-key"
         },
         {
           "name": "PROJECT_FRONTEND_PATH",
-          "value": "http://localhost:5174"
+          "value": "your-frontend-path"
         }
       ],
       "environmentFiles": [],
@@ -46,7 +46,7 @@
         "options": {
           "awslogs-create-group": "true",
           "awslogs-group": "/ecs/springboot-task-definition",
-          "awslogs-region": "us-east-2",
+          "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         },
         "secretOptions": []
@@ -104,7 +104,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-05-24T11:55:39.787Z",
+  "registeredAt": "2024-05-23T12:34:44.597Z",
   "registeredBy": "arn:aws:iam::471112935435:root",
   "tags": []
 }

@@ -23,7 +23,6 @@ public class AdsoApplication {
             System.out.println("=====================================================");
             System.out.println("Hello, from the console in " + new Date());
             System.out.println("=====================================================");
-
         };
     }
 

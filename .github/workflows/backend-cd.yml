@@ -1,3 +1,4 @@
+# DEPLOY APPLICATION TO AMAZON ECS
 name: Build & Deploy Spring Boot Application
 
 on:

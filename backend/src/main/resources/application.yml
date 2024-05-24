@@ -2,7 +2,7 @@ spring:
   application:
     name: menu-easy
   datasource:
-    jdbc:mysql://menueasy.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/menueasy url:
+    url: jdbc:mysql://menueasy.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/menueasy
     username: root
     password: Easy.2024.project
   jpa:

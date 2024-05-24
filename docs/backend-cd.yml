@@ -1,8 +1,7 @@
-# Este flujo de trabajo construirá y desplegará la aplicación Spring Boot a Docker Hub y luego a AWS ECS
+# This Workflow will build and deploy the Spring Boot application to Docker Hub
 
 name: Build & Deploy Spring app
 
-# Define cuándo se ejecutará el flujo de trabajo
 on:
   push:
     branches:
@@ -14,24 +13,14 @@ on:
 
 jobs:
   build-deploy:
-    name: Build and Deploy Backend
+    name: Build and Deploy Spring boot for beginner
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./backend
-    env: # Define las variables de entorno aquí
-      SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
-      SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
-      SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
-      PROJECT_SECRET_KEY: ${{ secrets.PROJECT_SECRET_KEY }}
-      PROJECT_FRONTEND_PATH: ${{ secrets.PROJECT_FRONTEND_PATH }}
-
-
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v3
-
 
       - name: Setup JDK 17
         uses: actions/setup-java@v3
@@ -39,10 +28,8 @@ jobs:
           distribution: 'corretto'
           java-version: 17
 
-
       - name: Unit Tests
         run: mvn -B test --file pom.xml
-
 
       - name: Build the application
         run: |
@@ -58,13 +45,11 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/menueasy:today
 
-
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-
 
       - name: Push to Docker Hub
         uses: docker/build-push-action@v5
@@ -82,7 +67,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
 
-
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
@@ -96,10 +80,13 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
+          # Build Docker Container ...
+          # Push it to ECR
+          # Deploy to ECS
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./backend
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-
+          
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def

@@ -103,7 +103,7 @@ jobs:
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
-        uses: aws-actions/amazon-ecs-render-task-definition@v43
+        uses: aws-actions/amazon-ecs-render-task-definition@v2
         with:
           task-definition: springboot-task-definition.json
           container-name: menueasy
@@ -111,7 +111,7 @@ jobs:
 
 
       - name: Deploy Amazon ECS task definition
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v3
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: menueasy-service

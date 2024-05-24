@@ -40,7 +40,7 @@ server:
 
 project:
   image: /app/images
-  secretKey: 9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
+    secretKey: 9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
   frontendPath: http://localhost:5174
 
 

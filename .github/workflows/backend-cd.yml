@@ -1,8 +1,5 @@
-# Este flujo de trabajo construirá y desplegará la aplicación Spring Boot a Docker Hub y luego a AWS ECS
-
 name: Build & Deploy Spring app
 
-# Define cuándo se ejecutará el flujo de trabajo
 on:
   push:
     branches:
@@ -19,7 +16,7 @@ jobs:
     defaults:
       run:
         working-directory: ./backend
-    env: # Define las variables de entorno aquí
+    env:
       SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
       SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
       SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
@@ -95,17 +92,18 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
+          REPOSITORY: menueasy
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./backend
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+          docker build -t $ECR_REGISTRY/REPOSITORY:$IMAGE_TAG ./backend
+          docker push $ECR_REGISTRY/REPOSITORY:$IMAGE_TAG  
+          echo "image=$ECR_REGISTRY/REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v@1
         with:
-          task-definition: task-definition.json
+          task-definition: springboot-task-definition.json
           container-name: menueasy
           image: ${{ steps.build-image.outputs.image }}
 

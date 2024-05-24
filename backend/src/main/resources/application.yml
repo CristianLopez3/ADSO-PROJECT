@@ -2,12 +2,12 @@ spring:
   application:
     name: menu-easy
   datasource:
-    url: jdbc:mysql://db-project.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/db_project
+    url: jdbc:mysql://menueasy.cbygeykeiqsl.us-east-2.rds.amazonaws.com:3306/menueasy
     username: root
     password: Easy.2024.project
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
@@ -40,8 +40,8 @@ server:
 
 project:
   image: /app/images
-  secretKey: ${PROJECT_SECRET_KEY}
-  frontendPath: ${PROJECT_FRONTEND_PATH}
+  secretKey: 9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
+  frontendPath: http://localhost:5174
 
 
 logging:

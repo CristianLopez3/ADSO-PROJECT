@@ -4,6 +4,12 @@ API Rest with Spring Boot...
 
 :x: Try do deploy, url's are failing
 
+[Backend APi Link](http://spring-api-easy.us-east-1.elasticbeanstalk.com/api/v1/events/1)
+
+
+[Frontend Link](http://menu-easy.s3-website-us-east-1.amazonaws.com/)
+
+
 ## 🚀 Quick start
 
 Be Sure to have installed Git in your machine in order to run the next commands:

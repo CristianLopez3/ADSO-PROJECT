@@ -1,0 +1,36 @@
+name: Deploy to Elastic Beanstalk
+
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: 17
+
+      - name: Build the application
+        run: mvn clean install -DskipTests
+
+      - name: Deploy to Elastic Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v21
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: "spring-api"
+          environment_name: "spring-api-env"
+          region: "us-east-1"
+          version_label: "today"
+          deployment_package: "./backend/target/menueasy.jar"

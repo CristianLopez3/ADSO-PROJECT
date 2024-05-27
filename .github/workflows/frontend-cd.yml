@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Build the application
-        run: npm run build
+        run: zip -r frontend.zip .
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v22
@@ -38,4 +38,4 @@ jobs:
           environment_name: ${{ secrets.EBF_APPLICATION_ENV }}
           region: ${{ secrets.AWS_REGION }}
           version_label: ${{ github.sha }}
-          deployment_package: "./frontend/dist"
+          deployment_package: frontend.zip

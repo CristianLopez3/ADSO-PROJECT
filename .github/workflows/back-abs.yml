@@ -15,6 +15,12 @@ jobs:
       run:
         working-directory: ./backend
     steps:
+
+      - name: Set build number
+        id: build-number
+        run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
+
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -32,8 +38,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: "spring-api"
-          environment_name: "spring-api-env"
-          region: "us-east-1"
-          version_label: "today"
+          application_name: ${{ secrets.EB_APPLICATION_NAME }}
+          environment_name: ${{ secrets.EB_APPLICATION_ENV }}
+          region: ${{ secrets.AWS_REGION }}
+          version_label: ${{ steps.build-number.outputs.BUILD_NUMBER }}
           deployment_package: "./backend/target/menueasy.jar"

@@ -41,4 +41,4 @@ jobs:
           environment_name: Reactapp-env
           region: ${{ secrets.AWS_REGION }}
           version_label: ${{ github.sha }}
-          deployment_package: './frontend.zip'
+          deployment_package: './frontend/frontend.zip'

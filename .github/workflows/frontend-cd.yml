@@ -34,8 +34,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: ${{ secrets.EBF_APPLICATION_NAME }}
-          environment_name: ${{ secrets.EBF_APPLICATION_ENV }}
+          application_name: reactapp
+          environment_name: Reactapp-env
           region: ${{ secrets.AWS_REGION }}
           version_label: ${{ github.sha }}
-          deployment_package: frontend.zip
+          deployment_package: './frontend/frontend.zip'

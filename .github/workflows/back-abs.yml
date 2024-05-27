@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - main
+    paths:
+        - 'backend/**'
+        - '.github/workflows/back-abs.yml'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

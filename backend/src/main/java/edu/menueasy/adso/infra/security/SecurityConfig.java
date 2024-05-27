@@ -85,7 +85,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         // configuring allowed source
         configuration.setAllowedOrigins(Arrays.asList(FRONTEND_PATH,
-                "http://192.168.20.25:5174/"));
+                "*", "**"));
         // Setting allowed methods
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"));
         //Setting Allowed Headers

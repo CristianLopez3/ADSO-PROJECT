@@ -16,9 +16,6 @@ jobs:
         working-directory: ./backend
     steps:
 
-      - name: Set build number
-        id: build-number
-        run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
 
 
       - name: Checkout code
@@ -32,6 +29,10 @@ jobs:
 
       - name: Build the application
         run: mvn clean install -DskipTests
+
+      - name: Set build number
+        id: build-number
+        run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21

@@ -21,7 +21,7 @@ const BookTable = ({ data }: BookTableProps) => {
           </React.Suspense>
         ) : (
           <tr>
-            <td colSpan={6} className="tex-left py-4 pl-4 bg-white">
+            <td colSpan={6} className="text-left py-4 pl-4 bg-zinc-200">
               No data available yet!.
             </td>
           </tr>
@@ -35,7 +35,9 @@ const BookTable = ({ data }: BookTableProps) => {
             ))}
           </React.Suspense>
         ) : (
-          <p>No data available</p>
+          <p className="text-left p-3 w-full bg-zinc-300 rounded-md">
+            No data available
+          </p>
         )}
       </div>
     </>

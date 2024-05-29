@@ -7,7 +7,7 @@
 }
 
 .add_button {
-    @apply px-2 gap-x-2;
+    @apply px-3 gap-x-2 border border-green-500;
     & span {
         @apply hidden md:block ;
     }

@@ -1,5 +1,5 @@
 import { reservationsService } from "@/service/reservations";
-import { Reservation } from "@/utils/types/Reservation";
+import { Reservation, ReservationsByDateDTO } from "@/utils/types/Reservation";
 import { CheckReservation } from "@/utils/types/Reservation"; // Import the CheckReservation type
 
 
@@ -9,6 +9,11 @@ export const getReservations = async (page = 0) => {
   return response.data;
 };
 
+export const getReservationsByDate = async (data: ReservationsByDateDTO) => {
+  const response = await reservationsService.getResevationsByDate(data);
+  console.log(response.data)
+  return response.data;
+}
 
 export const createReservation = async (reservation: Reservation) => {
   const response = await reservationsService.addReservation(reservation);

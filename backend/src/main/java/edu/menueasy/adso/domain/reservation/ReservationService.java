@@ -3,6 +3,7 @@ package edu.menueasy.adso.domain.reservation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -41,5 +42,6 @@ public interface ReservationService {
 
     Long getUncheckedInReservationCount();
 
+    Page<Reservation> getReservationsByDate(LocalDate date, Pageable pageable);
 
 }

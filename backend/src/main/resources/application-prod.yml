@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: menu-easy
+  datasource:
+    url: jdbc:mysql://menueasy.cbygeykeiqsl.us-east-2.rds.amazonaws.com/menueasy?createDatabaseIfNotExist=true
+
+    username: root
+    password: Easy.2024.project
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: true
+
+aws:
+  region: us-east-1
+  s3:
+    buckets:
+      images: menueasy-pictures
+
+main:
+  web-application-type: servlet
+
+servlet:
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 10MB
+
+codec:
+  max-in-memory-size: 10MB
+
+
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
+
+
+project:
+  image: /app/images
+  secretKey: 9d84d7b6e5c541f203c51eb9827156d17e638dd045f1fc8b2c7738bca0c52936
+  frontendPath: http://localhost:5174
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+

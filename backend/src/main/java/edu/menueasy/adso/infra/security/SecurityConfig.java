@@ -49,7 +49,18 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .exceptionHandling(config -> config.authenticationEntryPoint(jwtAuthEntryPoint))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/v1/auth/register/**").permitAll()
+                        .requestMatchers(
+                                "/api/v1/auth/register/**",
+                                "/v2/api-docs",
+                                "/v3/api-docs",
+                                "/v3/api-docs/**",
+                                "/swagger-resources",
+                                "/swagger-resources/**",
+                                "/configuration/ui",
+                                "/configuration/security",
+                                "/swagger-ui/**",
+                                "webjars/**",
+                                "/swagger-ui.html").permitAll()
                         .requestMatchers("/api/v1/auth/login/**").permitAll()
                         .requestMatchers("/api/v1/file/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/menus/**").permitAll()

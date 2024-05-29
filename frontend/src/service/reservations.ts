@@ -1,5 +1,5 @@
 import { instance } from "./base.api";
-import { CheckReservation, type Reservation } from "@/utils/types/Reservation";
+import { CheckReservation, ReservationsByDateDTO, type Reservation } from "@/utils/types/Reservation";
 
 const ENDPOINT = "reservations";
 
@@ -16,9 +16,12 @@ export const reservationsService = {
     return instance.delete(`${ENDPOINT}/${id!}`);
   },
   
-
-  getResevations:  (page = 1 ) => {
+  getResevations:  (page = 0 ) => {
     return instance.get(`${ENDPOINT}?page=${page}`);
+  },
+
+  getResevationsByDate:  ({page = 0, date}: ReservationsByDateDTO) => {
+    return instance.get(`${ENDPOINT}/date?date=${date}&page=${page}`);
   },
 
   getUnCheckedReservations:  () => {

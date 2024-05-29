@@ -1,7 +1,6 @@
 import React, { Suspense, useCallback, useEffect, useState } from "react";
-import { RiAddFill, RiPencilLine } from "react-icons/ri";
+import { RiAddFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 const BookTable = React.lazy(() => import("./components/book/BookTable"));
 import { AppDispatch, RootState } from "@/service/store/store";
@@ -14,20 +13,20 @@ import styles from "./styles.module.css";
 import Alert from "@/components/Alert";
 import { TableSkeleton } from "@/components/Skeleton";
 import Button from "@/components/Button";
-import { ROUTES } from "@/routes/constants";
 import Pagination from "@/components/Pagination";
+import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 // Move fetchMenus outside of the component
 
 const Reservations = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(0);
   const dispatch = useDispatch<AppDispatch>();
   const reservations = useSelector((state: RootState) => state.reservations);
   const toggleAddModal = useCallback(() => {
     setIsOpen((prevState) => !prevState);
   }, []);
-
-  const [currentPage, setCurrentPage] = useState<number>(0);
 
   const handleModal = useCallback(() => {
     setIsOpen(false);
@@ -43,7 +42,7 @@ const Reservations = () => {
       }
     };
     fetchReservations(dispatch);
-  }, [currentPage, dispatch, reservations.meta?.totalPages]);
+  }, [currentPage, reservations.meta?.totalPages]);
 
   const handlePageChange = (page: number) => setCurrentPage(page);
 
@@ -63,12 +62,14 @@ const Reservations = () => {
             >
               <span>Add</span> <RiAddFill />
             </Button>
-            <Link
-              to={ROUTES.DASHBOARD.RESERVATIONS.REPORT}
-              className="px-2 flex items-center gap-x-2 bg-zinc-300 text-zinc-900 rounded-md"
-            >
-              <span className="hidden md:block">Generate Report</span>{" "}
-              <RiPencilLine />
+            <Link to="filter">
+              <Button
+                variant="dark"
+                className="flex-center border border-zinc-200 text-zinc-200 font-bold"
+              >
+                Filter
+                <FaSearch />
+              </Button>
             </Link>
           </div>
         </DashboardNavbar>

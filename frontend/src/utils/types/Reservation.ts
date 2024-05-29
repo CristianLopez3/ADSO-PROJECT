@@ -11,6 +11,11 @@ export interface Reservation {
   checkedIn?: boolean;
 }
 
+export interface ReservationsByDateDTO  {
+  page: number;
+  date: Date | string;
+}
+
 export interface CheckReservation {
   id: number | string;
   checkedIn: boolean;

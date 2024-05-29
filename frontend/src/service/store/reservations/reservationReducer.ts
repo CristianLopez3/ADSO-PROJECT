@@ -6,6 +6,7 @@ import {
   countReservationsAction,
   updateReservationAction,
   deleteReservationAction,
+  getReservationsByDateAction,
 } from "./reservationActions";
 import { Reservation, ReservationReducer } from "@/utils/types/Reservation";
 import { getUncheckedReservationsAction } from "./reservationActions";
@@ -50,6 +51,21 @@ const reservationSlice = createSlice({
         }
       )
       .addCase(getReservationsAction.rejected, loadingFailed)
+
+      .addCase(getReservationsByDateAction.pending, startLoading)
+      .addCase(
+        getReservationsByDateAction.fulfilled,
+        (
+          state,
+          action: PayloadAction<{ content: Reservation[]; totalPages: number }>
+        ) => {
+          state.isLoading = false;
+          state.data = action.payload.content;
+          state.meta!.totalPages = action.payload.totalPages ?? null;
+        }
+      )
+      .addCase(getReservationsByDateAction.rejected, loadingFailed)
+
       // * Add the addMenu reducer
       .addCase(createReservationAction.pending, startLoading)
       .addCase(

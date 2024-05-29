@@ -17,6 +17,7 @@ import ProtectedRoute from "@/components/Auth/ProtectedRoute";
 import Profile from "@/pages/Dashboard/components/profile/Profile";
 import Report from "@/pages/Dashboard/components/book/Reports/Report";
 import Events from "@/pages/Dashboard/Events";
+import BookFilter from "@/pages/Dashboard/components/book/BookFilter";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +77,14 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
+          {
+            path: "filter",
+            element: (
+              <ProtectedRoute>
+                <BookFilter />
+              </ProtectedRoute>
+            )
+          }
         ],
       },
       {

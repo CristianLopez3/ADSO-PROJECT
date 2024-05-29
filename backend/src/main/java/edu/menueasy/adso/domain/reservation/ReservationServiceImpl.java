@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.TextStyle;
@@ -24,13 +25,13 @@ public class ReservationServiceImpl implements ReservationService {
         this.reservationValidator = reservationValidator;
     }
 
+
     @Override
     public Reservation createReservation(Reservation reservation) {
         reservationValidator.validate(reservation);
         reservation.setCheckedIn(false);
         return reservationRepository.save(reservation);
     }
-
 
 
     @Override
@@ -55,6 +56,7 @@ public class ReservationServiceImpl implements ReservationService {
         }
     }
 
+
     @Override
     public Reservation checkReservation(Long id, ReservationCheckDto reservationDto) {
         Reservation reservation = findReservationById(id);
@@ -68,20 +70,24 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationRepository.findByCheckedInIsTrue();
     }
 
+
     @Override
     public List<Reservation> getUncheckedInReservations() {
         return reservationRepository.findByCheckedInIsFalse();
     }
+
 
     @Override
     public Long countReservation() {
         return reservationRepository.count();
     }
 
+
     @Override
     public Long getUncheckedInReservationCount() {
         return reservationRepository.countByCheckedInFalse();
     }
+
 
     @Override
     public Map<String, Integer> getMonthlyReservationCounts() {
@@ -98,15 +104,18 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationRepository.findReservationsCountBetweenDates(start, end);
     }
 
+
     @Override
     public Long getReservationsForCurrentMonth() {
         return getReservationsForSpecificMonth(LocalDateTime.now());
     }
 
+
     @Override
     public Long getReservationsForPreviousMonth() {
         return getReservationsForSpecificMonth(LocalDateTime.now().minusMonths(1));
     }
+
 
     @Override
     public Map<String, Long> getReservationsForGivenMonths(LocalDateTime start, LocalDateTime end) {
@@ -116,6 +125,7 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationCounts;
     }
 
+
     @Override
     public Long getReservationsForSpecificMonth(LocalDateTime date) {
         LocalDateTime start = date.withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
@@ -123,15 +133,29 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationRepository.countReservationsForSpecificMonth(start, end);
     }
 
+
     @Override
     public Page<Reservation> getReservations(Pageable pageable) {
         return reservationRepository.findAllByOrderByReservationDateDescCheckedInAsc(pageable);
     }
 
 
+    @Override
+    public Page<Reservation> getReservationsByDate(LocalDate date, Pageable pageable) {
+        if(date == null){
+            throw new IllegalArgumentException("Date must not be null");
+        }
+        LocalDateTime startOfDay = date.atStartOfDay();
+        LocalDateTime endOfDay = startOfDay.plusDays(1).minusSeconds(1);
+        return reservationRepository.findByReservationDateBetween(startOfDay, endOfDay, pageable);
+    }
+
+
+
     private Reservation findReservationById(Long id) {
         return reservationRepository.findById(id).orElseThrow(() -> new RuntimeException("Can't find this reservation, try again"));
     }
+
 
     private Map<String, Integer> calculateMonthlyReservationCounts() {
         List<Object[]> monthlyCounts = reservationRepository.findMonthlyReservationCounts();

@@ -2,16 +2,20 @@ package edu.menueasy.adso.controller;
 
 import edu.menueasy.adso.domain.reservation.*;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
+
 
 @RestController
 @RequestMapping("/api/v1/reservations")
@@ -73,6 +77,16 @@ public class ReservationController {
     public ResponseEntity<Page<Reservation>> getReservations(@PageableDefault Pageable pagination) {
         return ResponseEntity.ok().body(reservationService.getReservations(pagination));
     }
+
+
+    @GetMapping("/date")
+    public ResponseEntity<Page<Reservation>> getReservationsByDate(
+            @RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            @PageableDefault Pageable pageable) {
+        Page<Reservation> reservations = reservationService.getReservationsByDate(date, pageable);
+        return ResponseEntity.ok(reservations);
+    }
+
 
     @GetMapping("/unchecked-in-count")
     public ResponseEntity<Long> getUncheckedInReservationCount() {

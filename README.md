@@ -1,8 +1,6 @@
 <h1 align="center"> Menu EASY  🍱 </h1>
 
-API Rest with Spring Boot...
-
-:x: Try do deploy, url's are failing
+Restaurant Projec using SpringBoot, AWS and React, please check the code and help me to improve it...
 
 [Backend APi Link](http://spring-api-easy.us-east-1.elasticbeanstalk.com/api/v1/events/1)
 
